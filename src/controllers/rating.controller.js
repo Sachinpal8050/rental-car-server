@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { Rating } from "../models/rating.model.js";
+import { appendToSheet } from "../utils/googleSheets.js";
 
 const getRating = asyncHandler(async (req, res) => {
   const { videoId } = req.params;
@@ -20,6 +21,8 @@ const addRating = asyncHandler(async (req, res) => {
     });
 
     res.status(201).json({ message: "Rating added successfully", lead });
+    const spreadsheetId = "1RXhesS9g4EziZTSZlPj_WEGeMt0Z-ZX-yX_E6QRFQnk";
+    appendToSheet(spreadsheetId, "Sheet2", [[rating, review]]);
   } catch (error) {
     res
       .status(500)
