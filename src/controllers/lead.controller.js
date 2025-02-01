@@ -22,7 +22,6 @@ const addLead = asyncHandler(async (req, res) => {
   if (
     !name ||
     !phoneNumber ||
-    !email ||
     !dateTime ||
     !pickupLocation ||
     !dropLocation ||

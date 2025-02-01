@@ -10,7 +10,7 @@ const getRating = asyncHandler(async (req, res) => {
 
 const addRating = asyncHandler(async (req, res) => {
   const { rating, review } = req.body;
-  if (!rating || !review) {
+  if (!rating) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
