@@ -36,7 +36,12 @@ const leadSchema = new Schema(
     },
     carType: {
       type: String,
-      enum: ["Swift Dzire", "Traveller 16 Seater", "Maruti Ertiga"],
+      enum: [
+        "Kia Carens",
+        "Swift Dzire",
+        "Traveller 16 Seater",
+        "Maruti Ertiga",
+      ],
       required: true,
     },
   },
